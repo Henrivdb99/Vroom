@@ -272,7 +272,7 @@ button {
     background-color: #3FE4D3; /* Pink background color for buttons */
     color: #ff007f;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
     width: 100%;
 }
