@@ -112,7 +112,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: carMovement 5s infinite alternate;
+  animation: carMovement 4s infinite alternate;
   overflow: hidden;
 }
 
@@ -282,7 +282,7 @@ button {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-100px);
+        transform: translateY(-50px);
     }
 }
 
