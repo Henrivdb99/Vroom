@@ -1,80 +1,295 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.content {
+    position: relative;
+    margin-top: 10vh;
+  }
+  
+  .content h1 {
+    color: #fff;
+    font-size: 7em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+  .content h1:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 4px #ff007f;
+    
+  }
+  
+  .content h1:nth-child(2) {
+    color: #3FE4D3;
+    animation: animate 4s ease-in-out infinite;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+
+  }
+  
+  @keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 35%,
+        16% 39%,
+        33% 45%,
+        54% 55%,
+        70% 56%,
+        84% 54%,
+        100% 47%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  
+    50% {
+      clip-path: polygon(
+        0% 55%,
+        15% 60%,
+        34% 61%,
+        51% 48%,
+        67% 45%,
+        84% 40%,
+        100% 41%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background_image.png');
+    background-size: auto 100vh;
+    background-repeat: repeat;
+    background-position: center;
+    animation: loopBackground 1s linear infinite;
+    z-index: -1;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2vh;
+    margin: 0 auto;
+    height: 100vh; /* Set the container height to 100% of viewport height */
 }
 
-h1 {
-    font-size: 5vw;
-    color: #3498db;
-    margin: 2vh 0;
-}
 
 .car-container {
-    gap: 2vh;
-}
-
-.car-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: 2vh;
+    align-items: center;
+    gap: 2vh;
+    width: 100%;
+    height: 100%; /* Set the car container height to 60% of viewport height */
+    margin-top: -20vh;
+    position: relative;
+
+  overflow: hidden; /* Cut off excess parts of the background image */
 }
 
 .car {
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    padding: 2vh;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(car_image.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: carMovement 5s infinite alternate;
+  overflow: hidden;
 }
 
-.car h2 {
-    font-size: 4vw;
-    margin: 0;
-    color: #2c3e50;
+.seat {
+  position: absolute; /* Use absolute positioning to position seats */
+  width: 100px; /* Adjust the seat width as needed */
+  height: 100px; /* Adjust the seat height as needed */
+  border-radius: 50%; /* Make the seat circular */
+  border: 2px solid #fff; /* Add a white border to the seat */
+  background-size: contain;
+  transition: top 1s, left 1s;
+}
+
+/* Position the seats on the car */
+#Annelies {
+  top: 80%;
+  left: 10%;
+}
+
+#Henri {
+  top: 80%;
+  left: 20%;
+}
+
+#Jasper {
+  top: 80%;
+  left: 30%;
+}
+
+#Saffi {
+  top: 80%;
+  left: 40%;
+}
+
+#Justine {
+  top: 80%;
+  left: 50%;
+}
+
+#Vital {
+  top: 80%;
+  left: 60%;
+}
+
+#Laora {
+  top: 80%;
+  left: 70%;
+}
+
+#Margot {
+  top: 80%;
+  left: 80%;
+}
+
+.car-title-top {
+    font-family: 'Arial Black', sans-serif;
+    position: absolute;
+    top: 32%;
+    right: 9%;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #3FE4D3;
+    z-index: 1;
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #fff800 0%,
+    #3FE4D3 50%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  transform: skewY(10deg);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.car-title-bottom {
+    font-family: 'Arial Black', sans-serif;
+    position: absolute;
+    bottom: 27%;
+    left: 10%;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #3FE4D3;
+    z-index: 1;
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #fff800 0%,
+    #ff007f 50%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  transform: skewY(10deg);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .seats {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1vh;
+    justify-items: center;
 }
 
-.seat-title {
-    font-size: 3vw;
-    color: #555;
-}
-
-.seat {
-    padding: 2vh 4vw;
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 8px;
+.person-image {
+  position: absolute;
+  bottom: -40px; /* Adjust this value as needed to align with the car image */
+  left: 50%;
+  width: 60px; /* Adjust the width and height as needed */
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease-in-out;
 }
 
 .buttons {
     display: flex;
+    flex-direction: column; /* Arrange buttons in a column */
+    align-items: center;
     gap: 2vh;
-    margin-top: 2vh;
+    height: 20vh; /* Set the buttons container height to 20% of viewport height */
+    width: 70%;
+    margin-top: -10vh;
+    z-index: 100;
 }
 
 button {
     padding: 2vh 4vw;
     font-size: 4vw;
-    background-color: #3498db;
-    color: #fff;
+    background-color: #3FE4D3; /* Pink background color for buttons */
+    color: #ff007f;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
+}
+
+@keyframes carMovement {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes loopBackground {
+    0% {
+        background-position: center calc(100% - 100vh);
+    }
+    100% {
+        background-position: center 0;
+    }
 }
