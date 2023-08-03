@@ -255,13 +255,14 @@ body {
 }
 
 .buttons {
+    position: absolute;
     display: flex;
     flex-direction: column; /* Arrange buttons in a column */
     align-items: center;
     gap: 2vh;
     height: 20vh; /* Set the buttons container height to 20% of viewport height */
     width: 70%;
-    margin-top: -10vh;
+    bottom: 1vh;
     z-index: 100;
 }
 
