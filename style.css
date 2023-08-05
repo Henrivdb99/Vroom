@@ -279,6 +279,6 @@ button::before {
   transform: translate(-0.255em, -0.25em);
 }
 .wrapper2 span:last-child {
-  --color: #ff007f;
+  --color: #ffcc00;
   transform: translate(0.255em, 0.25em);
 }
