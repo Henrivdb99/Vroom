@@ -254,7 +254,7 @@ button::before {
   -webkit-text-stroke: 0.1em var(--color);
 }
 .wrapper2 span {
-  --color: #fff800;
+  --color: #ffcc00;
   font-family: Impact, "Anton", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-weight: 700;
   font-style: italic;
@@ -279,6 +279,6 @@ button::before {
   transform: translate(-0.255em, -0.25em);
 }
 .wrapper2 span:last-child {
-  --color: #ffcc00;
+  --color: #ff007f;
   transform: translate(0.255em, 0.25em);
 }
