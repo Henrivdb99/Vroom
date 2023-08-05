@@ -6,61 +6,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.content {
-    position: relative;
-    margin-top: 5vh;
-  }
-  
-  .content h1 {
-    color: #fff;
-    font-size: 7em;
-    position: absolute;
-    transform: translate(-50%, -50%);
-  }
-  
-  .content h1:nth-child(1) {
-    color: transparent;
-    -webkit-text-stroke: 4px #ff007f;
-    
-  }
-  
-  .content h1:nth-child(2) {
-    color: #3FE4D3;
-    animation: animate 4s ease-in-out infinite;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-
-  }
-  
-  @keyframes animate {
-    0%,
-    100% {
-      clip-path: polygon(
-        0% 35%,
-        16% 39%,
-        33% 45%,
-        54% 55%,
-        70% 56%,
-        84% 54%,
-        100% 47%,
-        100% 100%,
-        0% 100%
-      );
-    }
-  
-    50% {
-      clip-path: polygon(
-        0% 55%,
-        15% 60%,
-        34% 61%,
-        51% 48%,
-        67% 45%,
-        84% 40%,
-        100% 41%,
-        100% 100%,
-        0% 100%
-      );
-    }
-  }
 
 body {
     font-family: Arial, sans-serif;
@@ -98,7 +43,7 @@ body {
     gap: 2vh;
     width: 100%;
     height: 100%; /* Set the car container height to 60% of viewport height */
-    margin-top: -25vh;
+    margin-top: -20vh;
     position: relative;
 
   overflow: hidden; /* Cut off excess parts of the background image */
@@ -167,70 +112,40 @@ body {
   left: 80%;
 }
 
-.car-title-top {
+h2 {
     font-family: 'Arial Black', sans-serif;
-    position: absolute;
-    top: 32%;
-    right: 9%;
-    font-size: 2.5em;
+    font-size: 4em;
     font-weight: bold;
-    color: #3FE4D3;
     z-index: 1;
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #fff800 0%,
-    #3FE4D3 50%,
-    #fff800 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  transform: skewY(10deg);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    display: inline-block;
+    transform: skewY(10deg);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    position: absolute; /* Common position for car titles */
+    color: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    background-size: 200% auto;
+    text-align: center;
+}
+
+.car-title-top {
+    top: 28%;
+    right: 13%;
+    background-image: linear-gradient(-225deg, #fff800 0%, #3FE4D3 50%, #fff800 100%);
+}
+
+.car-title-bottom {
+    bottom: 24%;
+    left: 14%;
+    background-image: linear-gradient(-225deg, #fff800 0%, #ff007f 50%, #fff800 100%);
 }
 
 @keyframes textclip {
   to {
     background-position: 200% center;
   }
-}
-
-.car-title-bottom {
-    font-family: 'Arial Black', sans-serif;
-    position: absolute;
-    bottom: 27%;
-    left: 10%;
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #3FE4D3;
-    z-index: 1;
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #fff800 0%,
-    #ff007f 50%,
-    #fff800 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  transform: skewY(10deg);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .seats {
@@ -269,12 +184,19 @@ body {
 button {
     padding: 2vh 4vw;
     font-size: 4vw;
-    background-color: #3FE4D3; /* Pink background color for buttons */
-    color: #ff007f;
+    background-color: rgba(63, 228, 211, 0.6);
+    backdrop-filter: blur(10px);    color: #ff007f;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     width: 100%;
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes carMovement {
