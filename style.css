@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 * {
   margin: 0;
@@ -127,6 +128,7 @@ h2 {
     animation: textclip 2s linear infinite;
     background-size: 200% auto;
     text-align: center;
+    mix-blend-mode: ;
 }
 
 .car-title-top {
@@ -183,19 +185,28 @@ h2 {
 button {
     padding: 2vh 4vw;
     font-size: 4vw;
-    background-color: rgba(63, 228, 211, 0.6);
-    backdrop-filter: blur(10px);    color: #ff007f;
+    background: transparent;
+    color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     width: 100%;
-    background-image: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.3) 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0.3) 100%
-    );
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+
+}
+button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px); /* Adjust the blur amount as needed */
+  pointer-events: none;
+  z-index: -1;
 }
 
 @keyframes carMovement {
@@ -214,4 +225,96 @@ button {
     100% {
         background-position: center 0;
     }
+}
+
+.wrapper {
+  top: 13%;
+  left: 19%;
+  font-size: 2.4em;
+  height: 2em;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: screen;
+  animation: carMovement 4s infinite alternate;
+}
+.wrapper span {
+  --color: #3FE4D3;
+  font-family: Impact, "Anton", Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  display: block;
+  position: absolute;
+  color: var(--color);
+  letter-spacing: -0.005em;
+}
+.wrapper span::before, .wrapper span::after {
+  content: attr(data-text);
+  display: block;
+  position: relative;
+  padding: 0 0.1em;
+  z-index: 1;
+}
+.wrapper span::before {
+  position: absolute;
+  -webkit-text-stroke: 0.1em black;
+  z-index: 0;
+}
+.wrapper span:first-child {
+  transform: translate(-0.255em, -0.25em);
+}
+.wrapper span:last-child {
+  --color: #1A5F7A;
+  transform: translate(0.255em, 0.25em);
+}
+
+.wrapper2 {
+  top: 52%;
+  right: 21%;
+  font-size: 2.5em;
+  height: 2em;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: screen;
+  animation: carMovement 4s infinite alternate;
+}
+.wrapper2.invert span {
+  color: black;
+}
+.wrapper2.invert span::before {
+  -webkit-text-stroke: 0.1em var(--color);
+}
+.wrapper2 span {
+  --color: #fff800;
+  font-family: Impact, "Anton", Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  display: block;
+  position: absolute;
+  color: var(--color);
+  letter-spacing: -0.005em;
+}
+.wrapper2 span::before, .wrapper2 span::after {
+  content: attr(data-text);
+  display: block;
+  position: relative;
+  padding: 0 0.1em;
+  z-index: 1;
+}
+.wrapper2 span::before {
+  position: absolute;
+  -webkit-text-stroke: 0.1em black;
+  z-index: 0;
+}
+.wrapper2 span:first-child {
+  transform: translate(-0.255em, -0.25em);
+}
+.wrapper2 span:last-child {
+  --color: #ff007f;
+  transform: translate(0.255em, 0.25em);
 }
