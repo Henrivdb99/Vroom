@@ -282,3 +282,83 @@ button::before {
   --color: #ff007f;
   transform: translate(0.255em, 0.25em);
 }
+.toggle-container{
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  margin-top: 20px;
+  font-size: 18px;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+
+}
+
+.toggle-container label {
+  margin: 10px;
+  color: #fff;
+  width: 75px;
+}
+
+.toggle-container input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.3); /* Darker and transparent background color */
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #3FE4D3;
+  border-radius: 50%;
+  transition: transform 0.3s ease, left 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked {
+  background-color: #ff007f;
+}
+
+.toggle-container input[type="checkbox"]:checked::before {
+  left: 5px;
+  transform: translateX(100%);
+  background-color: #3FE4D3;
+}
+
+.disco-lights {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 98; /* Below the disco flare */
+}
+
+.disco-light {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: inset 0px 0px 10px 2px rgba(255, 255, 255, 0.5),
+              0px 0px 10px 2px rgb(227, 146, 209);
+  border-radius: 50%;
+  animation: disco-light 1s infinite;
+}
+
+@keyframes disco-light {
+  0%, 100% {
+      transform: scale(0.5);
+      opacity: 0.0;
+  }
+  50% {
+      transform: scale(1);
+      opacity: 0.7;
+  }
+}
