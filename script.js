@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const clearBtn = document.getElementById("clear-btn");
   const toggle = document.getElementById("drinking-mode-toggle");
   const discoLightsContainer = document.getElementById("disco-lights");
+  const backgroundOverlay = document.querySelector(".background-overlay");
 
 
   // Driver seat positions
@@ -74,44 +75,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   let discoInterval;
+  let lights = [];
 
   toggle.addEventListener("change", function () {
       if (toggle.checked) {
           startDiscoLights();
+          backgroundOverlay.classList.add("active");
+
       } else {
           stopDiscoLights();
+          backgroundOverlay.classList.remove("active");
+
       }
   });
 
   function startDiscoLights() {
-      generateDiscoLights(); // Generate initial lights
-      discoInterval = setInterval(updateDiscoLights, 1000); // Update every second
+      generateDiscoLights();
+      discoInterval = setInterval(updateDiscoLights, 1500); // Change every 2 seconds
   }
 
   function stopDiscoLights() {
       clearInterval(discoInterval);
-      discoLightsContainer.innerHTML = ""; // Clear existing lights
+      lights.forEach(light => {
+          light.remove();
+      });
+      lights = [];
   }
 
-  // Helper function to generate disco lights
   function generateDiscoLights() {
-      discoLightsContainer.innerHTML = ""; // Clear existing lights
-      for (let i = 0; i < 20; i++) {
+      const numLights = 50; // Generate more lights
+      for (let i = 0; i < numLights; i++) {
           const light = document.createElement("div");
           light.classList.add("disco-light");
           light.style.top = `${Math.random() * 100}%`;
           light.style.left = `${Math.random() * 100}%`;
           light.style.backgroundColor = getRandomColor();
+          light.style.animationDuration = `${Math.random() * 2 + 1}s`;
           discoLightsContainer.appendChild(light);
+          lights.push(light);
       }
   }
 
-  // Helper function to update disco lights positions and colors
   function updateDiscoLights() {
-      generateDiscoLights(); // Generate new set of lights
+      lights.forEach(light => {
+          if (!toggle.checked) {
+              light.style.top = `${Math.random() * 100}%`;
+              light.style.left = `${Math.random() * 100}%`;
+          }
+          light.style.backgroundColor = getRandomColor();
+      });
   }
 
-  // Helper function to generate a random color
   function getRandomColor() {
       const letters = "0123456789ABCDEF";
       let color = "#";
@@ -121,12 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return color;
   }
 
-
-  // Helper function to shuffle an array using Fisher-Yates algorithm
-  function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-  }
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
 });
