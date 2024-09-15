@@ -384,3 +384,47 @@ button::before {
   background-color: rgba(0, 0, 0, 0.4); /* Dark background when active */
   transition: background-color 0.5s ease; /* Smooth transition when removing active class */
 }
+
+
+
+
+/* Sparkle Mode */
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: sparkle-animation 1s infinite;
+}
+
+@keyframes sparkle-animation {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.5);
+  }
+}
+
+/* Sleepy Mode 
+.sleepy-star {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  animation: sleepy-animation 2s infinite;
+}
+
+@keyframes sleepy-animation {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+}
+
+.background-overlay.sleepy {
+  background-color: rgba(0, 0, 50, 0.5); /* Dimmed blue overlay */
+}
+*/
